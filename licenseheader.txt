@@ -1,0 +1,8 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Copyright Ummu Hanisah. 
+${licensePrefix}All Rights Reserved
+<#if licenseLast??>
+${licenseLast}
+</#if>
