@@ -5,6 +5,7 @@
 package com.newhut.java.stream.researchanddev.main;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -17,7 +18,7 @@ public class JavaStreamMain {
 
     public static void main(String[] args) throws IOException {
         JavaStreamMain jsm = new JavaStreamMain();
-        jsm.integerStreamWithStreamOfDemo();
+        jsm.streamOfWithArraySortFilterAndPrintDemo();
     }
 
     // 1. Integer Stream
@@ -32,7 +33,7 @@ public class JavaStreamMain {
     #########
     123456789
      */
-
+    
     // 2. Integer Stream with skip
     private void integerStreamWithSkipDemo() {
         IntStream // class
@@ -59,22 +60,37 @@ public class JavaStreamMain {
                         .sum());
         // 0 + 1 + 2 + 3 + 4 
     }
-    
+
     /* Output
     #########
     10
      */
     
-    // 4. Integer Stream with Stream.of, sorted, findFirst
-    private void integerStreamWithStreamOfDemo() {
-        Stream.of("Ummu", "Rina", "Insyirah")
-                .sorted()
-                .findFirst()
+    // 4. Stream.of, sorted, findFirst
+    private void streamOfWithSortedAndFindFirstDemo() {
+        Stream.of("Ummu", "Rina", "Insyirah") // can be used with any type.
+                .sorted() // alphabetical sort
+                .findFirst() // find the first item
                 .ifPresent(System.out::println);
     }
-    
+
     /* Output
     #########
     Insyirah
-    */
+     */
+    
+    // 5. Stream from Array, filter, sort, and print
+    private void streamOfWithArraySortFilterAndPrintDemo() {
+        String[] names = {"Ummu", "Rina", "Insyirah", "Umar"};
+        Arrays.stream(names)
+                .filter(x -> x.startsWith("U")) // filter itme that only start with "U"
+                .sorted() // sort them
+                .forEach(System.out::println); // for each item that pass the sort we're going to print it out
+    }
+
+    /* Output
+    #########
+    Umar
+    Ummu
+     */
 }
